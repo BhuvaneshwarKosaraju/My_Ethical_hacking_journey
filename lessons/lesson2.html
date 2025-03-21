@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: Footprinting & Reconnaissance</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #444;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #00a297;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00a297;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background: #00776b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lesson 2: Footprinting & Reconnaissance</h1>
+    <p>Welcome to the second lesson of your Ethical Hacking journey. In this lesson, you'll learn how to perform <strong>footprinting and reconnaissance</strong> on a target.</p>
+
+    <h2>🛠️ What is Footprinting?</h2>
+    <p>Footprinting is the process of gathering information about a target system or network. This includes identifying IP addresses, domain names, and organizational details.</p>
+
+    <h2>🔍 Types of Footprinting</h2>
+    <ul>
+        <li><strong>Passive Footprinting:</strong> Collecting information without interacting with the target (e.g., OSINT).</li>
+        <li><strong>Active Footprinting:</strong> Interacting with the target to gather details (e.g., port scanning).</li>
+    </ul>
+
+    <h2>🌐 Tools for Footprinting</h2>
+    <ul>
+        <li><strong>WHOIS:</strong> Fetch domain registration details.</li>
+        <li><strong>Nslookup:</strong> Resolve domain names to IPs.</li>
+        <li><strong>Nmap:</strong> Network scanning and service enumeration.</li>
+        <li><strong>Shodan:</strong> Search engine for devices and services.</li>
+    </ul>
+
+    <h2>✅ Hands-On Labs</h2>
+
+    <h3>1️⃣ WHOIS Lookup (Python)</h3>
+    <p>Use this Python script to fetch WHOIS information:</p>
+    <div class="code">
+        <pre>
+import whois
+
+# Enter the target domain
+domain = input("Enter domain: ")
+
+# Fetch WHOIS details
+w = whois.whois(domain)
+
+print("\n--- WHOIS Information ---")
+print(f"Domain: {w.domain_name}")
+print(f"Registrar: {w.registrar}")
+print(f"Creation Date: {w.creation_date}")
+print(f"Expiration Date: {w.expiration_date}")
+print(f"Name Servers: {w.name_servers}")
+        </pre>
+    </div>
+
+    <h3>2️⃣ Nslookup (Command Line)</h3>
+    <p>Use <strong>nslookup</strong> to find IP addresses of a domain:</p>
+    <div class="code">
+        <pre>
+nslookup google.com
+        </pre>
+    </div>
+
+    <h3>3️⃣ Nmap Scan (Command Line)</h3>
+    <p>Scan a target to identify open ports and services:</p>
+    <div class="code">
+        <pre>
+nmap -sS -p- -T4 -A -v target.com
+        </pre>
+    </div>
+
+    <h3>4️⃣ Shodan Search</h3>
+    <p>Use <strong>Shodan</strong> to find exposed devices:</p>
+    <div class="code">
+        <pre>
+shodan search "apache"
+        </pre>
+    </div>
+
+    <h2>🔥 Challenges</h2>
+    <p>Test your skills with these challenges:</p>
+    <ol>
+        <li>Use WHOIS to find the domain registration date for amazon.com.</li>
+        <li>Find the IP address of <code>microsoft.com</code> using nslookup.</li>
+        <li>Perform a full Nmap scan on <code>scanme.nmap.org</code>.</li>
+    </ol>
+
+    <h2>🚀 Conclusion</h2>
+    <p>You’ve learned how to perform <strong>Footprinting and Reconnaissance</strong>. These are essential skills for penetration testing and vulnerability assessment.</p>
+    <a href="lesson1.html" class="btn">← Previous Lesson</a>
+    <a href="lesson3.html" class="btn">Next Lesson →</a>
+</div>
+
+</body>
+</html>
