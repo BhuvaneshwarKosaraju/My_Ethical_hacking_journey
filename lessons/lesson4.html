@@ -5,40 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 4: OS Fingerprinting</title>
     <link rel="stylesheet" href="../static/styles.css">
-    <style>
-        body { font-family: Arial, sans-serif; color: #333; background: #f4f4f4; padding: 20px; }
-        .container { max-width: 1100px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1, h2 { color: #444; }
-        .code { background: #f4f4f4; padding: 10px; border-left: 4px solid #00a297; white-space: pre-wrap; font-family: Consolas, monospace; }
-        .btn { display: inline-block; padding: 10px 20px; background: #00a297; color: #fff; text-decoration: none; border-radius: 4px; }
-        .btn:hover { background: #00776b; }
-    </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Lesson 4: OS Fingerprinting</h1>
-    <p>OS Fingerprinting is the process of identifying the operating system of a target system by analyzing network traffic patterns.</p>
+    <p>In this lesson, you will learn how to perform OS Fingerprinting, a crucial part of reconnaissance in ethical hacking. OS Fingerprinting helps identify the target machine's operating system based on network responses.</p>
 
-    <h2>✅ Tools for OS Fingerprinting</h2>
+    <h2>🔍 Overview of OS Fingerprinting</h2>
+    <p>OS Fingerprinting can be categorized into two types:</p>
     <ul>
-        <li><strong>Nmap:</strong> OS detection and port scanning.</li>
-        <li><strong>Xprobe2:</strong> Advanced OS fingerprinting.</li>
-        <li><strong>Netcat:</strong> Basic service banner analysis.</li>
+        <li><strong>Active OS Fingerprinting:</strong> Involves sending packets to the target and analyzing responses.</li>
+        <li><strong>Passive OS Fingerprinting:</strong> Involves listening to the network traffic without directly interacting with the target system.</li>
     </ul>
 
-    <h2>💻 Hands-On Labs</h2>
+    <h2>📘 Tools for OS Fingerprinting</h2>
+    <ul>
+        <li><strong>Nmap:</strong> A versatile tool used for network exploration and OS detection.</li>
+        <li><strong>Xprobe2:</strong> A tool for advanced OS fingerprinting and version detection.</li>
+        <li><strong>Netcat:</strong> A simple tool used for banner grabbing, useful for OS identification.</li>
+    </ul>
 
-    <h3>1️⃣ Nmap OS Detection</h3>
-    <p>Use Nmap to detect the target OS:</p>
+    <h2>💻 Hands-on Labs</h2>
+    <h3>1️⃣ Using Nmap for OS Fingerprinting</h3>
+    <p>Use the following command in your terminal to detect the OS of the target system using Nmap:</p>
     <div class="code">
         <pre>
-nmap -O scanme.nmap.org
+nmap -O 192.168.1.1
         </pre>
     </div>
+    <p>Here, <code>-O</code> tells Nmap to perform OS detection.</p>
 
-    <h3>2️⃣ Xprobe2 OS Fingerprinting</h3>
-    <p>Use Xprobe2 to identify the OS:</p>
+    <h3>2️⃣ Using Xprobe2 for OS Fingerprinting</h3>
+    <p>Run the following command to identify the operating system using Xprobe2:</p>
     <div class="code">
         <pre>
 xprobe2 -v 192.168.1.1
@@ -46,7 +45,7 @@ xprobe2 -v 192.168.1.1
     </div>
 
     <h2>🔥 Challenge</h2>
-    <p>Use Nmap to identify the OS of <code>scanme.nmap.org</code>.</p>
+    <p>Use Nmap to find the OS of a remote target: <code>scanme.nmap.org</code>.</p>
 
     <a href="lesson3.html" class="btn">← Previous Lesson</a>
     <a href="lesson5.html" class="btn">Next Lesson →</a>

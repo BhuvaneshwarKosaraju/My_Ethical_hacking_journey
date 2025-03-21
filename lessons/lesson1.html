@@ -3,78 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 1: Reconnaissance</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <title>Ethical Hacking Course - Lesson 1</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing stylesheet if any -->
 </head>
 <body>
-
-<header>
-    <h1>Lesson 1: Reconnaissance 🔥</h1>
-    <nav>
-        <a href="../index.html">Home</a>
-        <a href="../about.html">About</a>
-        <a href="../contact.html">Contact</a>
-    </nav>
-</header>
-
-<main>
-    <section class="lesson-content">
-        <h2>🔍 Introduction to Reconnaissance</h2>
-        <p>Reconnaissance (or recon) is the first phase of ethical hacking. It involves gathering information about the target before launching any attacks.</p>
-
-        <h3>🎯 **Objectives of Reconnaissance:**</h3>
+    <header>
+        <h1>Ethical Hacking Course</h1>
+        <h2>Lesson 1: Network Scanning with Nmap</h2>
+    </header>
+    
+    <section>
+        <h3>What You’ll Learn:</h3>
         <ul>
-            <li>Identify target domains and subdomains.</li>
-            <li>Discover IP addresses, ports, and services.</li>
-            <li>Enumerate users and emails.</li>
-            <li>Collect data for further exploitation.</li>
+            <li>Basics of Nmap (Network Mapper)</li>
+            <li>How to perform a network scan to discover devices on a network</li>
+            <li>Identify open ports and services running on a host</li>
+            <li>Understand service versions and OS detection</li>
         </ul>
-
-        <h3>💻 **Lab 1: WHOIS Lookup**</h3>
-        <p>This lab shows how to perform a WHOIS lookup to gather domain information.</p>
-
-        <pre>
-# Install WHOIS tool (Linux)
-sudo apt install whois
-
-# Perform WHOIS lookup
-whois example.com
-        </pre>
-
-        <h3>🛠️ **Python Script: WHOIS Lookup**</h3>
-        <p>Below is a Python script to automate WHOIS lookups.</p>
-
-        <pre>
-import whois
-
-def whois_lookup(domain):
-    try:
-        w = whois.whois(domain)
-        print("Domain:", w.domain_name)
-        print("Registrar:", w.registrar)
-        print("Creation Date:", w.creation_date)
-        print("Expiration Date:", w.expiration_date)
-    except Exception as e:
-        print("Error:", e)
-
-# Example usage
-whois_lookup("example.com")
-        </pre>
-
-        <h3>⚡ **Challenge:**</h3>
-        <p>Perform a WHOIS lookup on a website of your choice and collect:</p>
-        <ul>
-            <li>Domain registrar</li>
-            <li>Contact details</li>
-            <li>Creation and expiration dates</li>
-        </ul>
-
     </section>
-</main>
+    
+    <section>
+        <h3>Why Nmap is Important:</h3>
+        <p>Nmap is one of the most commonly used tools for network discovery and vulnerability scanning. Ethical hackers use Nmap to map out targets, identify open ports, and find services that might be vulnerable to attacks.</p>
+    </section>
 
-<footer>
-    <p>© 2025 Ethical Hacking Journey | Created by Bhuvaneshwar Kosaraju</p>
-</footer>
+    <section>
+        <h3>1.1: Introduction to Nmap</h3>
+        <p>Nmap is an open-source tool used to discover devices and services running on a network. It's often used for network mapping, port scanning, and service enumeration.</p>
+    </section>
 
+    <section>
+        <h3>1.2: Installing Nmap</h3>
+        <ul>
+            <li><strong>Linux</strong>: Open your terminal and run:
+                <pre>sudo apt-get install nmap</pre>
+            </li>
+            <li><strong>Windows</strong>: Download and install from <a href="https://nmap.org/download.html" target="_blank">Nmap.org</a>.</li>
+            <li><strong>MacOS</strong>: Use Homebrew:
+                <pre>brew install nmap</pre>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>1.3: Basic Nmap Scanning</h3>
+        <p>The simplest Nmap scan can be performed by typing the following in your terminal:</p>
+        <pre>nmap &lt;target_IP_address&gt;</pre>
+        <p>Example:</p>
+        <pre>nmap 192.168.1.1</pre>
+    </section>
+
+    <section>
+        <h3>1.4: Nmap Scan Types</h3>
+        <h4>SYN Scan (-sS)</h4>
+        <p>Fast scan that doesn’t complete the TCP handshake (stealth scan).</p>
+        <pre>nmap -sS 192.168.1.1</pre>
+
+        <h4>TCP Connect Scan (-sT)</h4>
+        <p>Normal scan that completes the TCP handshake. It’s more detectable but works on systems that block SYN packets.</p>
+        <pre>nmap -sT 192.168.1.1</pre>
+
+        <h4>Service Version Detection (-sV)</h4>
+        <p>Identify services and versions running on the open ports.</p>
+        <pre>nmap -sV 192.168.1.1</pre>
+
+        <h4>Operating System Detection (-O)</h4>
+        <p>Guess the operating system of the target machine.</p>
+        <pre>nmap -O 192.168.1.1</pre>
+    </section>
+
+    <section>
+        <h3>1.5: Example Exercise</h3>
+        <p>Run a network scan on a local target (use your router or any machine within your local network):</p>
+        <pre>nmap -sS -sV -O 192.168.1.1</pre>
+        <p>This command will:
+            <ul>
+                <li>Scan the most common ports using a SYN scan</li>
+                <li>Detect versions of services running on open ports</li>
+                <li>Attempt to identify the operating system of the target</li>
+            </ul>
+        </p>
+    </section>
+
+    <section>
+        <h3>1.6: Advanced Nmap Scans</h3>
+        <p><strong>Scan a range of IPs:</strong></p>
+        <pre>nmap 192.168.1.1-100</pre>
+
+        <p><strong>Scan a subnet:</strong></p>
+        <pre>nmap 192.168.1.0/24</pre>
+
+        <p><strong>Scan a specific port:</strong></p>
+        <pre>nmap -p 22 192.168.1.1</pre>
+
+        <p><strong>Aggressive Scan:</strong> This scan performs multiple actions at once, including OS detection, service version detection, and more.</p>
+        <pre>nmap -A 192.168.1.1</pre>
+    </section>
+
+    <section>
+        <h3>1.7: Conclusion</h3>
+        <p>Nmap is a powerful and essential tool in any ethical hacker's toolkit. Mastering its use will allow you to map networks, discover services, and detect vulnerabilities that could be exploited. The more you practice, the better you’ll understand the target environments.</p>
+    </section>
+
+    <section>
+        <h3>Hands-on Lab Exercise:</h3>
+        <ol>
+            <li><strong>Scan a Local Network</strong>:
+                <ul>
+                    <li>Find out the IP range of your local network (use <code>ipconfig</code> on Windows or <code>ifconfig</code> on Linux/Mac).</li>
+                    <li>Run an Nmap scan on the local network to identify devices.</li>
+                    <li>Experiment with different scan options (e.g., SYN scan, service version scan).</li>
+                </ul>
+            </li>
+            <li><strong>Remote Target Scan (with Permission)</strong>:
+                <ul>
+                    <li>Try scanning a publicly available target (with permission, such as a vulnerable VM or test environment).</li>
+                    <li>Run various scans on the target to see which services are open.</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>Ethical Hacking Course - Lesson 1</p>
+    </footer>
 </body>
 </html>

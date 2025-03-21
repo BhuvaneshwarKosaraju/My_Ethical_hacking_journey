@@ -10,19 +10,34 @@
 
 <div class="container">
     <h1>Lesson 6: Vulnerability Scanning</h1>
+    <p>Vulnerability scanning is a key component of ethical hacking, used to identify security flaws in the target system. This lesson focuses on using tools like Nessus and OpenVAS to detect vulnerabilities.</p>
 
-    <h2>✅ Tools</h2>
+    <h2>📘 Tools for Vulnerability Scanning</h2>
     <ul>
-        <li><strong>Nessus:</strong> Industry-grade vulnerability scanner.</li>
-        <li><strong>OpenVAS:</strong> Open-source scanner.</li>
+        <li><strong>Nessus:</strong> A widely used vulnerability scanner for detecting weaknesses in systems.</li>
+        <li><strong>OpenVAS:</strong> An open-source alternative to Nessus, used for vulnerability management and scanning.</li>
     </ul>
 
-    <h2>💻 Lab:</h2>
+    <h2>💻 Hands-on Labs</h2>
+    <h3>1️⃣ Using Nessus for Vulnerability Scanning</h3>
+    <p>Install Nessus and perform a vulnerability scan using the following command:</p>
     <div class="code">
         <pre>
 nessus -q -T HTML -o report.html
         </pre>
     </div>
+    <p>This will generate an HTML report of vulnerabilities found in the system.</p>
+
+    <h3>2️⃣ Using OpenVAS for Vulnerability Scanning</h3>
+    <p>Here’s how to perform a vulnerability scan using OpenVAS:</p>
+    <div class="code">
+        <pre>
+openvas-check-setup --v9
+        </pre>
+    </div>
+
+    <h2>🔥 Challenge</h2>
+    <p>Run a vulnerability scan using Nessus on your local machine and generate a report.</p>
 
     <a href="lesson5.html" class="btn">← Previous Lesson</a>
 </div>

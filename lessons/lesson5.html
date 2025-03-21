@@ -10,29 +10,35 @@
 
 <div class="container">
     <h1>Lesson 5: Network Mapping</h1>
-    <p>Learn how to map a network using Nmap and Masscan.</p>
+    <p>Network Mapping is the process of discovering the devices, services, and systems connected to a network. It is crucial for understanding the network layout and identifying potential targets for penetration testing.</p>
 
-    <h2>✅ Tools for Network Mapping</h2>
+    <h2>📘 Tools for Network Mapping</h2>
     <ul>
-        <li><strong>Nmap:</strong> Advanced network scanning.</li>
-        <li><strong>Masscan:</strong> Ultra-fast scanning.</li>
+        <li><strong>Nmap:</strong> Nmap can be used for detailed network scanning and host discovery.</li>
+        <li><strong>Masscan:</strong> A high-speed network scanner useful for scanning large networks quickly.</li>
     </ul>
 
-    <h2>💻 Hands-On Labs</h2>
-
-    <h3>1️⃣ Nmap Network Mapping</h3>
+    <h2>💻 Hands-on Labs</h2>
+    <h3>1️⃣ Using Nmap for Network Mapping</h3>
+    <p>To discover hosts in a network, use the following Nmap command:</p>
     <div class="code">
         <pre>
 nmap -sn 192.168.1.0/24
         </pre>
     </div>
+    <p>This command will perform a ping sweep on the specified network.</p>
 
-    <h3>2️⃣ Masscan Fast Scan</h3>
+    <h3>2️⃣ Using Masscan for Fast Scanning</h3>
+    <p>Masscan is extremely fast for scanning large networks. Here is an example:</p>
     <div class="code">
         <pre>
 masscan 192.168.1.0/24 -p0-65535 --rate=10000
         </pre>
     </div>
+    <p>This scans all ports across the network in less than a minute.</p>
+
+    <h2>🔥 Challenge</h2>
+    <p>Use Nmap to scan your local network and identify all online devices.</p>
 
     <a href="lesson4.html" class="btn">← Previous Lesson</a>
     <a href="lesson6.html" class="btn">Next Lesson →</a>
