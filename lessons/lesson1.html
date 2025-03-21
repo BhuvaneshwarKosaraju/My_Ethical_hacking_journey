@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Reconnaissance</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Lesson 1: Reconnaissance 🔥</h1>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section class="lesson-content">
+        <h2>🔍 Introduction to Reconnaissance</h2>
+        <p>Reconnaissance (or recon) is the first phase of ethical hacking. It involves gathering information about the target before launching any attacks.</p>
+
+        <h3>🎯 **Objectives of Reconnaissance:**</h3>
+        <ul>
+            <li>Identify target domains and subdomains.</li>
+            <li>Discover IP addresses, ports, and services.</li>
+            <li>Enumerate users and emails.</li>
+            <li>Collect data for further exploitation.</li>
+        </ul>
+
+        <h3>💻 **Lab 1: WHOIS Lookup**</h3>
+        <p>This lab shows how to perform a WHOIS lookup to gather domain information.</p>
+
+        <pre>
+# Install WHOIS tool (Linux)
+sudo apt install whois
+
+# Perform WHOIS lookup
+whois example.com
+        </pre>
+
+        <h3>🛠️ **Python Script: WHOIS Lookup**</h3>
+        <p>Below is a Python script to automate WHOIS lookups.</p>
+
+        <pre>
+import whois
+
+def whois_lookup(domain):
+    try:
+        w = whois.whois(domain)
+        print("Domain:", w.domain_name)
+        print("Registrar:", w.registrar)
+        print("Creation Date:", w.creation_date)
+        print("Expiration Date:", w.expiration_date)
+    except Exception as e:
+        print("Error:", e)
+
+# Example usage
+whois_lookup("example.com")
+        </pre>
+
+        <h3>⚡ **Challenge:**</h3>
+        <p>Perform a WHOIS lookup on a website of your choice and collect:</p>
+        <ul>
+            <li>Domain registrar</li>
+            <li>Contact details</li>
+            <li>Creation and expiration dates</li>
+        </ul>
+
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Ethical Hacking Journey | Created by Bhuvaneshwar Kosaraju</p>
+</footer>
+
+</body>
+</html>
