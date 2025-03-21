@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3: Scanning & Enumeration</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #444;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #00a297;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00a297;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background: #00776b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lesson 3: Scanning & Enumeration</h1>
+    <p>Welcome to Lesson 3 of your Ethical Hacking journey. In this lesson, you'll learn how to perform <strong>scanning and enumeration</strong> to discover open ports, services, and vulnerabilities on a target system.</p>
+
+    <h2>🛠️ What is Scanning & Enumeration?</h2>
+    <p>Scanning is the process of identifying live hosts, open ports, and services running on a network. Enumeration is the act of extracting more information about the services, like usernames, machine names, or shares.</p>
+
+    <h2>🔍 Scanning Techniques</h2>
+    <ul>
+        <li><strong>Ping Sweep:</strong> Identify live hosts.</li>
+        <li><strong>Port Scanning:</strong> Discover open ports on a system.</li>
+        <li><strong>Service Enumeration:</strong> Identify services running on open ports.</li>
+        <li><strong>Vulnerability Scanning:</strong> Find potential weaknesses.</li>
+    </ul>
+
+    <h2>🌐 Tools for Scanning</h2>
+    <ul>
+        <li><strong>Nmap:</strong> Port scanning and service detection.</li>
+        <li><strong>Netcat:</strong> Banner grabbing and network testing.</li>
+        <li><strong>Masscan:</strong> Fast network scanning.</li>
+        <li><strong>Metasploit:</strong> Vulnerability scanning and exploitation.</li>
+    </ul>
+
+    <h2>✅ Hands-On Labs</h2>
+
+    <h3>1️⃣ Nmap Port Scan (Command Line)</h3>
+    <p>Scan a target to identify open ports and services:</p>
+    <div class="code">
+        <pre>
+nmap -sS -p- -T4 -A -v target.com
+        </pre>
+    </div>
+
+    <h3>2️⃣ Netcat Banner Grabbing</h3>
+    <p>Use Netcat to grab service banners:</p>
+    <div class="code">
+        <pre>
+nc -v target.com 80
+        </pre>
+    </div>
+
+    <h3>3️⃣ Masscan (Ultra-Fast Scanning)</h3>
+    <p>Scan thousands of IPs quickly:</p>
+    <div class="code">
+        <pre>
+masscan -p80,443 192.168.1.0/24 --rate=10000
+        </pre>
+    </div>
+
+    <h3>4️⃣ Metasploit Vulnerability Scan</h3>
+    <p>Use Metasploit to detect vulnerabilities:</p>
+    <div class="code">
+        <pre>
+msfconsole
+use auxiliary/scanner/portscan/tcp
+set RHOSTS target.com
+set THREADS 10
+run
+        </pre>
+    </div>
+
+    <h2>🔥 Challenges</h2>
+    <p>Test your skills with these challenges:</p>
+    <ol>
+        <li>Use Nmap to scan <code>scanme.nmap.org</code> and list all open ports.</li>
+        <li>Use Netcat to grab the banner of a web server on port 80.</li>
+        <li>Run Masscan on your local network and list all live hosts.</li>
+    </ol>
+
+    <h2>🚀 Conclusion</h2>
+    <p>You’ve learned how to perform <strong>Scanning and Enumeration</strong>. These are essential skills for identifying weaknesses and understanding network configurations.</p>
+    <a href="lesson2.html" class="btn">← Previous Lesson</a>
+    <a href="lesson4.html" class="btn">Next Lesson →</a>
+</div>
+
+</body>
+</html>
